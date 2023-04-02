@@ -1,7 +1,10 @@
 
 function User() {
   return (
-    <div>User</div>
+    <div>
+      {/* <Login />
+      <Register /> */}
+    </div>
   )
 }
 
