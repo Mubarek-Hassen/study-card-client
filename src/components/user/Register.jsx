@@ -1,11 +1,20 @@
 import { useState } from "react"
-
+import axios from "axios"
 function Register() {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: ""
   })
+
+  const onRegister = async (event)=>{
+    event.preventDefault()
+    try {
+      await axios.post("http://localhost:8080/user/register", {})
+    } catch (error) {
+      console.error()
+    }
+  }
   return (
     <div>
       <form>
@@ -20,7 +29,7 @@ function Register() {
         </div>
         <div>
           <label htmlFor="password"> Password: </label>
-          <input type="text" value={userData.password} onChange={(e)=> setUserData({ ...userData, password: e.target.value})} />
+          <input type="password" value={userData.password} onChange={(e)=> setUserData({ ...userData, password: e.target.value})} />
         </div>
         <button type="submit">Register</button>
       </form>
