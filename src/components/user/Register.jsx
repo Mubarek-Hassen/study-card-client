@@ -10,14 +10,15 @@ function Register() {
   const onRegister = async (event)=>{
     event.preventDefault()
     try {
-      await axios.post("http://localhost:8080/user/register", {})
+      await axios.post("http://localhost:8080/user/register", userData)
+      alert("User Registered!")
     } catch (error) {
-      console.error()
+      console.error(error)
     }
   }
   return (
     <div>
-      <form>
+      <form onSubmit={onRegister}>
         <h2> Register </h2>
         <div>
           <label htmlFor="name"> Name: </label>
