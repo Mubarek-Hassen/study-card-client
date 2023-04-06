@@ -15,7 +15,7 @@ function Login() {
     event.preventDefault()
 
     try {
-      const response = axios.post("http://localhost:8080/user/login", userData)
+      const response = await axios.post("http://localhost:8080/user/login", userData)
       setCookies("access_token", response.data.token)
       window.localStorage.setItem("userID", response.data.userId)
       navigate("/")
@@ -26,7 +26,7 @@ function Login() {
 
   return (
     <div>
-      <form>
+      <form onSubmit={ onLogin }>
         <h2> Login </h2>
         <div>
           <label htmlFor="email"> Email: </label>
