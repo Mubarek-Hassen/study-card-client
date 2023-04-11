@@ -10,9 +10,10 @@ function User() {
     <div>
 
       {!isRegister && <Register />}
-      {isRegister && <Login />}
-      <h5>Already have an account?</h5>
-      <button onClick={sign}>Login</button>
+      {isRegister && <div><Login />
+      </div>}
+    <h5>Already have an account?</h5>
+    <button onClick={sign}>Login</button>
     </div>
   )
 }
