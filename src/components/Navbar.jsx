@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <div className="green">
       <Link to="/"> Home </Link>
-      <Link to="/create-card"> Create Card </Link>
+      <Link to="/new-card"> Create Card </Link>
       {!cookies.access_token ? <Link to="/user"> Login/Register </Link> : <button onClick={ logout }>Logout</button>}
     </div>
   )
