@@ -1,15 +1,14 @@
-import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './pages/Home'
-import RootLayout from './components/RootLayout'
-function App() {
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import RootLayout from "./components/RootLayout"
+import Home from "./pages/Home"
+
+const App = () =>  {
 
   const router = createBrowserRouter([
-    { path: "/", 
-      element: <RootLayout />, 
-      children: [
-        {index: true, element: <Home />}
-      ] 
+    {
+      path: "/", element: <RootLayout />, children: [
+        { index: true, element: <Home /> }
+      ]
     }
   ])
 

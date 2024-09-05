@@ -1,8 +1,9 @@
+import { Box } from "@mui/material"
 
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <Box >Header</Box>
   )
 }
 
