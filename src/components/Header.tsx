@@ -100,12 +100,12 @@ export default function PersistentDrawerRight() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ bgcolor: "Black"}}>
         <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            Persistent drawer
+          <Typography variant="h4" noWrap sx={{ flexGrow: 1, }} component="div">
+            Grokker
           </Typography>
           <IconButton
             color="inherit"
@@ -118,12 +118,13 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Main open={open}>
+      <Main open={open} >
         <DrawerHeader />
       </Main>
       <Drawer
         sx={{
           width: drawerWidth,
+
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
@@ -151,7 +152,9 @@ export default function PersistentDrawerRight() {
             </ListItem>
           ))}
         </List>
+        
         <Divider />
+
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
@@ -164,7 +167,9 @@ export default function PersistentDrawerRight() {
             </ListItem>
           ))}
         </List>
+        
       </Drawer>
+
     </Box>
   );
 }
