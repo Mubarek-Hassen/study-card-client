@@ -1,4 +1,4 @@
-import { ActionFunctionArgs } from "react-router-dom";
+import { ActionFunctionArgs, json } from "react-router-dom";
 // import { json } from "react-router-dom";
 
 export async function authAction({request}: ActionFunctionArgs) {
@@ -30,6 +30,12 @@ export async function authAction({request}: ActionFunctionArgs) {
 
   const resData = await res.json()
   console.log(resData);
+  if(!resData.token){
+    return resData
+  }
+  if(res.status === 401){
+    throw json({message: resData}, {status: 401})
+  }
 
 
 }
