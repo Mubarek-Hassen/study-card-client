@@ -1,5 +1,5 @@
-import { ActionFunctionArgs, json } from "react-router-dom";
-// import { json } from "react-router-dom";
+import { ActionFunctionArgs, json, redirect } from "react-router-dom";
+import { setAuthToken } from "../authHelpers";
 
 export async function authAction({request}: ActionFunctionArgs) {
   console.log(request)
@@ -36,6 +36,13 @@ export async function authAction({request}: ActionFunctionArgs) {
   if(res.status === 401){
     throw json({message: resData}, {status: 401})
   }
-
-
+  const token = resData.token;
+  setAuthToken(token)
+  const expiration = new Date();
+  expiration.setHours(expiration.getHours() + 1)
+  localStorage.setItem("expiration", expiration.toISOString())
+  if(token){
+    return redirect("/grok-cards")
+  }
+  return redirect(`/auth?mode=${mode}`)
 }
