@@ -15,6 +15,9 @@ export async function authAction({request}: ActionFunctionArgs) {
     email: data.get("email"),
     password: data.get("password"),
   }
+  if(mode === "register"){ 
+    enteredData.name = data.get("name")
+  }
   console.log(data);
   console.log(enteredData);
 
@@ -42,7 +45,7 @@ export async function authAction({request}: ActionFunctionArgs) {
   expiration.setHours(expiration.getHours() + 1)
   localStorage.setItem("expiration", expiration.toISOString())
   if(token){
-    return redirect("/grok-cards")
+    return redirect("/grokker")
   }
   return redirect(`/auth?mode=${mode}`)
 }

@@ -1,8 +1,6 @@
 import { Box, List, ListItem } from "@mui/material"
 import AuthForm from "../components/AuthForm"
 import { useActionData } from "react-router-dom"
-// import { useSearchParams } from "react-router-dom"
-
 
 const Auth = () => {
   const errors = useActionData()
