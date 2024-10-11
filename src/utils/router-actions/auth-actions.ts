@@ -14,6 +14,7 @@ export async function authAction({request}: ActionFunctionArgs) {
   const enteredData = {
     email: data.get("email"),
     password: data.get("password"),
+    name: data.get("name")
   }
   if(mode === "register"){ 
     enteredData.name = data.get("name")
