@@ -5,8 +5,9 @@ import Auth from "./pages/Auth"
 import { authAction } from "./utils/router-actions/auth-actions.ts"
 import ErrorPage from "./pages/ErrorPage.tsx"
 import Grokker from "./pages/Grokker.tsx"
-import cardsLoader from "./utils/router-loaders/cards-loader.tsx"
+import cardsLoader from "./utils/router-loaders/cards-loader.ts"
 import { NewCard } from "./pages/NewCard.tsx"
+import GrokCard from "./pages/GrokCard.tsx"
 
 const App = () =>  {
 
@@ -30,6 +31,13 @@ const App = () =>  {
             },{
               path: "new-card",
               element: <NewCard />
+            },{
+              path: ":cardId",
+              children: [{
+                index: true,
+                element: <GrokCard />,
+
+              }]
             }
           ]
         }
