@@ -8,6 +8,7 @@ import Grokker from "./pages/Grokker.tsx"
 import cardsLoader from "./utils/router-loaders/cards-loader.ts"
 import { NewCard } from "./pages/NewCard.tsx"
 import GrokCard from "./pages/GrokCard.tsx"
+import { manipulateCard } from "./utils/router-actions/manipulate-card-action.ts"
 
 const App = () =>  {
 
@@ -24,19 +25,21 @@ const App = () =>  {
         },{
           path: "grokker",
           loader: cardsLoader,
+          id: "cards",
           children: [
             {
               index: true,
               element: <Grokker />,
             },{
               path: "new-card",
-              element: <NewCard />
+              element: <NewCard />,
+              action: manipulateCard,
             },{
               path: ":cardId",
               children: [{
                 index: true,
                 element: <GrokCard />,
-
+                
               }]
             }
           ]

@@ -1,8 +1,10 @@
 import { Box, Button, Typography } from "@mui/material"
-import { Link } from "react-router-dom"
+import { Link, useRouteLoaderData,  } from "react-router-dom"
 
 
 const Grokker = () => {
+  const cards = useRouteLoaderData("cards")
+  console.log(cards)
   return (
     <Box>
       <Typography>There are no cards.</Typography>

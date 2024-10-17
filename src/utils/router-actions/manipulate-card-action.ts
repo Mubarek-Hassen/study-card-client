@@ -2,7 +2,7 @@ import { ActionFunctionArgs, redirect } from "react-router-dom";
 import { getAuthToken } from "../authHelpers";
 
 
-export async function action({request, params}: ActionFunctionArgs){
+export async function manipulateCard({request, params}: ActionFunctionArgs){
   const method = request.method;
   const cardId = params.cardId
   const token = getAuthToken()
@@ -12,12 +12,12 @@ export async function action({request, params}: ActionFunctionArgs){
     back: data.get("back"),
   }
   const baseUrl = import.meta.env.VITE_BASE_URL;
-  let url = `${baseUrl}grokker`;
+  let url = `${baseUrl}`;
   if(method === "POST"){
-    url = `${baseUrl}/new-card`
+    url = `${baseUrl}grokker/new-card`
   }
   if(method === "PUT"){
-    url = `${baseUrl}/${cardId}`
+    url = `${baseUrl}grokker/${cardId}`
   }
 
   const response = await fetch(url, {

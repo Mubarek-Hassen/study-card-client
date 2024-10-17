@@ -3,7 +3,7 @@ import { Form } from "react-router-dom"
 
 export const NewCard = () => {
   return (
-    <Form>
+    <Form method="post">
       <Box sx={{display: "flex", justifyContent: "center", flexDirection: "column", gap: "2rem", m: 4}}>
       <TextField name="front" label="Front of Card" />
       <TextField name="back" label="Back of Card" />

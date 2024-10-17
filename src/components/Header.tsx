@@ -18,6 +18,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { Link } from 'react-router-dom';
+import { getAuthToken } from '../utils/authHelpers';
 
 const drawerWidth = 240;
 
@@ -88,6 +90,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerRight() {
+  const token = getAuthToken()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -104,8 +107,10 @@ export default function PersistentDrawerRight() {
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ bgcolor: "Black"}}>
         <Toolbar>
-          <Typography variant="h4" noWrap sx={{ flexGrow: 1, }} component="div">
+          <Typography variant="h4" noWrap sx={{ flexGrow: 1}} component="div">
+            <Link style={{textDecoration: "none", color: "inherit"}} to={ token ? "/grokker" : "auth?mode=login"}>
             Grokker
+            </Link>
           </Typography>
           <IconButton
             color="inherit"

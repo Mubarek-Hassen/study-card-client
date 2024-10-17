@@ -5,7 +5,7 @@ import { getAuthToken } from "../authHelpers";
 export default async function cardsLoader (){
   const token = getAuthToken();
   const url = import.meta.env.VITE_BASE_URL
-  const response = await fetch(`${url}cards`, {
+  const response = await fetch(`${url}grokker`, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
