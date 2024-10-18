@@ -9,6 +9,7 @@ import cardsLoader from "./utils/router-loaders/cards-loader.ts"
 import { NewCard } from "./pages/NewCard.tsx"
 import GrokCard from "./pages/GrokCard.tsx"
 import { manipulateCard } from "./utils/router-actions/manipulate-card-action.ts"
+import { cardLoader } from "./utils/router-loaders/card-loader.ts"
 
 const App = () =>  {
 
@@ -36,6 +37,8 @@ const App = () =>  {
               action: manipulateCard,
             },{
               path: ":cardId",
+              id: "card",
+              loader: cardLoader,
               children: [{
                 index: true,
                 element: <GrokCard />,

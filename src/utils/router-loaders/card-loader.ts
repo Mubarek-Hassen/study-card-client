@@ -4,7 +4,7 @@ import { getAuthToken } from "../authHelpers";
 export const cardLoader = async ({params}: ActionFunctionArgs)=>{
   const { cardId } = params
   const token = getAuthToken()
-  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/grokker/${cardId}`,{
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}grokker/${cardId}`,{
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
