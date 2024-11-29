@@ -11,7 +11,7 @@ export const cardLoader = async ({params}: ActionFunctionArgs)=>{
     }
   })
   if(!response.ok){
-    return json({message: "An error occured."}, {status: 500})
+    return json({message: "An error occured." }, {status: 500})
   } else {
     const data = await response.json()
     return data

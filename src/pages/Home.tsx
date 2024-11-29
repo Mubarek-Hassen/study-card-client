@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <Box>
       <Typography variant="h2">Welcome To Grokker!</Typography>
-      <Typography variant="h3">Where you get help to GRokk your test!</Typography>
+      <Typography variant="h3">Where you get help to Grokk your test!</Typography>
       <Link to="auth?mode=login">
         <Button variant="contained" sx={{bgcolor: "black", my: 2}}>Login</Button>
       </Link>
